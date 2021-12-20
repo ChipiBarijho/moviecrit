@@ -1,0 +1,110 @@
+@import '../../scss/utils';
+
+.Footer{
+    width: 100%;
+    height: auto;
+    padding: 25px 0;
+    background-color: #a45bc1;
+    background-image: linear-gradient(225deg, #a45bc1 0%, #784BA0 50%, #2B86C5 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    .Footer-container{
+        width: 65%;
+        height: 80%;
+        display: flex;
+        justify-content: space-between;
+        .Footer-company-name{
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+            width: 30%;
+            color: white;
+            div{
+                font-size: 14px;
+            }
+            .Footer-logo {
+                a{
+                    text-decoration: none;
+                    font-family: 'Fredoka One', sans-serif;
+                    font-size: 35px;
+                    color: white;
+                }
+            }
+        }
+
+        .Footer-socials{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 6px;
+            color: white;
+            h3{
+                border-bottom: 2px solid $primaryColorLighter;
+            }
+            ul{
+                list-style-type: none;
+            }
+            li{
+                margin: 4px 0;
+            }
+        }
+
+        .Footer-contact{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 6px;
+            color: white;
+            h3{
+                border-bottom: 2px solid $primaryColorLighter;
+            }
+            ul{
+                flex-grow: 2;
+                list-style-type: none;
+            }
+            li{
+                
+                display: flex;
+                align-items: center;
+                margin: 4px 0;
+            }
+            span{
+                margin-left: 5px;
+            }
+        }
+    }
+}
+
+
+
+@media (max-width: 768px) {
+    .Footer {
+        .Footer-container {
+            width: 80%;
+        }
+    }
+
+}
+
+@media (max-width: 600px) {
+    .Footer {
+        .Footer-container {
+            width: 100%;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+            .Footer-company-name{
+                text-align: center;
+                width: 80%;
+            }
+            .Footer-socials{
+                ul{
+                    display: flex;
+                    gap: 6px;
+                }
+            }
+        }
+    }
+
+}

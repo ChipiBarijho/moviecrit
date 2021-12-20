@@ -1,0 +1,95 @@
+@import '../../scss/utils';
+
+.NewMovieLists {
+    margin-top: 5px;
+    width: 95%;
+    display: flex;
+    flex-direction: column;
+    // flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+
+    // .chosen {
+    //     border: 1px solid green;
+    // }
+    .NewMovieLists-add-btn {
+        color: white;
+        padding: 5px 10px;
+        border-radius: 50px;
+        margin: 20px 0 10px;
+        background-color: $secondaryColor;
+        font-size: 20px;
+        font-weight: 500;
+
+        &:hover {
+            background-color: $secondaryColorDarker;
+        }
+    }
+
+    .NewMovieLists-add-success {
+        font-weight: 500;
+        margin-bottom: 5px;
+        color: #26a55b;
+    }
+
+    .NewMovieLists-add-failure {
+        font-weight: 500;
+        margin-bottom: 5px;
+        color: #cf302a;
+    }
+
+    .NewMovieLists-items-container {
+        margin-bottom: 10px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .NewMovieLists-item {
+        max-width: 130px;
+        margin: 6px 8px;
+        cursor: pointer;
+        transition: transform 100ms;
+
+        &:hover {
+            transform: scale(1.1);
+        }
+
+        img {
+            border-radius: 2px;
+            max-width: 100%;
+            height: auto;
+        }
+
+        p {
+            font-size: 12px;
+            font-weight: 500;
+        }
+    }
+}
+
+@media (max-width: 768px) {
+    .NewMovieLists {
+        .NewMovieLists-item {
+            max-width: 100px;
+        }
+    }
+
+}
+
+@media (max-width: 600px) {
+    .NewMovieLists {
+        .NewMovieLists-item {
+            max-width: 60px;
+
+            p {
+                font-size: 12px;
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+            }
+        }
+    }
+
+}

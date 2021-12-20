@@ -1,0 +1,25 @@
+@import '../../scss/utils';
+
+.Home{
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 70%;
+    height: auto;
+    padding-bottom: 200px;
+    padding-top: 60px;
+}
+
+// Dark Mode
+.Home-dark{
+    background-color: rgb(20, 20, 20);
+}
+
+
+
+@media (max-width: 768px) {
+    .Home{
+        width: 100%;
+    }
+}

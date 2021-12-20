@@ -1,0 +1,22 @@
+@import '../../../scss/utils';
+
+.NotFound{
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
+    h1{
+        font-size: 4rem;
+    }
+}
+
+
+.NotFound-dark{
+    background-color: $darkModeColor;
+    color: white;
+}

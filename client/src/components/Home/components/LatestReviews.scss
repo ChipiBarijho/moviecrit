@@ -1,0 +1,145 @@
+@import '../../../scss/utils';
+
+.LatestReviews{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 40px 0;
+    width: 100%;
+    height: auto;
+    // background-color: $darkModeColor;
+    h2{
+        margin-left: auto;
+        margin-right: auto;
+        width: 50%;
+        text-align: center;
+        margin-bottom: 20px;
+        padding-bottom: 2px;
+        border-bottom: 2px solid $primaryColorLighter;
+    }
+    .LatestReviews-cards-container{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 20px 40px;
+        width: 100%;
+        .LatestReviews-single-card{
+            width: 220px;
+            height: 240px;
+            -webkit-box-shadow: 0px 0px 35px -8px rgba(138,138,138,0.38);
+            -moz-box-shadow: 0px 0px 35px -8px rgba(138,138,138,0.38);
+            box-shadow: 0px 0px 35px -8px rgba(138,138,138,0.38);
+            border-radius: 20px;
+            transition: transform 100ms;
+            &:hover{
+                // cursor: pointer;
+                transform: scale(1.01);
+            }
+            .LatestReviews-card-user{
+                display: flex;
+                height: 20%;
+                // background-color: black;
+                width: 100%;
+                margin: 12px 5px;
+                .LatestReviews-user-image{
+                    width: 30%;
+                    height: auto;
+                    img{
+                        width: 100%;
+                        height: auto;
+                        border-radius: 50%;
+                    }
+                }
+
+                .LatestReviews-username{
+                    text-align: center;
+                    display: flex;
+                    align-items: center;
+                    justify-content: flex-start;
+                    width: 100%;
+                    margin-left: 10px;
+                    color: $primaryColorLighter;
+                    font-weight: 500;
+                    font-size: 1rem;
+                    .LatestReviews-username-rating{
+                        color: $secondaryColor;
+                        margin-left: 20px;
+                        border: 2px solid $primaryColor;
+                        padding: 4px 8px;
+                        border-radius: 5px;
+                    }
+                }
+            }
+
+            .LatestReviews-card-movie{
+                width: 100%;
+                height: 50%;
+                position: relative;
+                // background-color: black;
+                h3{
+                    text-align: center;
+                    font-size: 1.4rem;
+                    color: white;
+                    width: 100%;
+                    position: absolute;
+                    z-index: 5;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%, -50%);
+                }
+                img{
+                    width: 100%;
+                }
+                .LatestReviews-movie-bg{
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 105%;
+                    opacity: 0.3;
+                    background-color: black;
+                }
+            }
+
+            .LatestReviews-card-check-review{
+                width: 100%;
+                height: 20%;
+                background-color: $primaryColorLighter;
+                border-bottom-left-radius: 20px;
+                border-bottom-right-radius: 20px;
+                color: white;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                &:hover{
+                    cursor: pointer;
+                }
+                span{
+                    font-size: 1.2rem;
+                    font-weight: 500;
+                }
+            }
+        }
+    }
+    
+}
+
+
+@media (max-width: 768px){
+    .LatestReviews{
+        margin: 20px 0;
+        .LatestReviews-cards-container{
+            .LatestReviews-single-card{
+                width: 200px;
+                height: 220px;
+                .LatestReviews-card-user{
+                    .LatestReviews-username{
+                        .LatestReviews-username-rating{
+                            margin-left: 5px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

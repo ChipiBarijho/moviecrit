@@ -1,0 +1,33 @@
+@import '../../scss/utils.scss';
+
+.Profile{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    // margin-top: 10px;
+    margin-right: auto;
+    margin-left: auto;
+    width: 65%;
+    height: 100vh;
+    padding-top: 60px;
+}
+
+.bg-dark{
+    background-color: $darkModeColor;
+    color: white;
+}
+
+@media (max-width: 768px) {
+    .Profile {
+       width: 80%;
+    }
+
+}
+
+@media (max-width: 600px) {
+    .Profile {
+       width: 99%;
+    }
+
+}

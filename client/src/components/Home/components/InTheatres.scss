@@ -1,0 +1,179 @@
+@import '../../../scss/utils';
+
+.InTheatres{
+    width: 100%;
+    height: 440px;
+    position: relative;
+    .InTheatres-container{
+        display: flex;
+        height: 100%;
+        width: 100%;
+        .InTheatres-background{
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            .InTheatres-img-background{
+                height:100%; 
+                width:100%;
+                object-fit: cover;
+            }
+        }
+        
+    
+        .InTheatres-content{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            width: 100%;
+            height: 100%;
+            z-index: 2;
+            h2{
+                margin-top: 10px;
+                margin-left: 40px;
+                align-self: flex-start;
+                color: white;
+                border-bottom: 6px solid $secondaryColorLighter;
+            }
+
+            ::-webkit-scrollbar {
+                height: 10px;
+                width: 10px;
+                background: rgba(0, 0, 0, 0.25);
+                -webkit-border-radius: 1ex;
+            }
+            
+            ::-webkit-scrollbar-thumb {
+                
+                // background: #393812;
+                background: $primaryColorLighter;
+                -webkit-border-radius: 1ex;
+                &:hover{
+                    cursor: pointer;
+                    background: $secondaryColor;
+                }
+            }
+            .InTheatres-content-cards{
+                display: flex;
+                justify-content: flex-start;
+                align-items: center;
+                // gap: 0px 20px;
+                overflow-x: scroll;
+                height: 100%;
+                text-align: center;
+                margin-top: 20px;
+                color: white;
+                .hover-card{
+                    cursor: pointer;
+                    transition: transform 100ms;
+                    &:hover{
+                        transform: scale(1.01);
+                    }
+                }
+                .InTheatres-content-card{
+                    position: relative;
+                    width: 190px;
+                    margin-left: 20px;
+                    margin-right: 20px;
+                    margin-bottom: 5px;
+                    overflow: hidden;
+                    border-radius: 20px;
+                   
+                    .InTheatres-content-card-add{
+                        position: absolute;
+                        bottom: 0;
+                        right: 0;
+                        width: 100px;
+                        height: 100px;
+                        border-radius: 50%;
+                        transform: translate(50%, 50%);
+                        background-color: rgb(18, 168, 18);
+                        
+                    }
+
+                    .InTheatres-content-card-add-icon{
+                        position: absolute;
+                        bottom: 1%;
+                        right: 1%;
+                        transition: transform 80ms ease;
+                        &:hover{
+                            transform: scale(1.15);
+                            cursor: pointer;
+                        }
+                    }
+                    img{
+                        border-radius: 20px;
+                        width: 100%;
+                        height: 100%;
+                    }
+
+                    .InTheatres-content-card-success{
+                        position: absolute;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        // color: rgb(18, 168, 18);
+                        width: 100%;
+                        height: 100%;
+                        // top: 50%;
+                        // left: 50%;
+                        // font-size: 20px;
+                        // font-weight: 500;
+                        // transform: translate(-50%, -50%);
+                        div{
+                            position: absolute;
+                            width: 100%;
+                            height: 100%;
+                            background-color: black;
+                            opacity: 0.9;
+                        }
+                        span{
+                            font-size: 20px;
+                            font-weight: 500; 
+                            color: rgb(18, 168, 18);
+                            z-index: 1;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+
+
+    .login-pop-up{
+        position: absolute;
+        width: 300px;
+        height: 100px;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-color: rgba(255, 255, 255);
+        border-radius: 20px;
+        z-index: 5;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+        gap: 2px 0;
+        border: 2px solid $primaryColorLighter;
+        .login-pop-up-close{
+            // style={{alignSelf: 'flex-end', marginRight: '5px'}}
+            align-self: flex-end;
+            margin-right: 8px;
+            margin-top: 8px;
+            &:hover{
+                cursor: pointer;
+                color: white;
+                background-color: $primaryColorLighter;
+            }
+        }
+        span{
+            // flex-grow: 2;
+            text-align: center;
+            line-height: 1.4;
+            width: 92%;
+            font-weight: 500;
+        }
+    }
+   
+}

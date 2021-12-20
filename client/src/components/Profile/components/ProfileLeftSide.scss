@@ -1,0 +1,93 @@
+@import '../../../scss/utils.scss';
+
+.ProfileLeftSide{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 25%;
+    height: 100%;
+    // border-right: 2px solid #a45bc185;
+    // border-radius: 10px;
+   
+    
+    .ProfileLeftSide-user{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        height: auto;
+        border-right: 2px solid #a45bc19d;
+        border-bottom: 2px solid #a45bc19d;
+        border-bottom-right-radius: 25px;
+        .ProfileLeftSide-photo{
+            margin-top: 10px;
+            position: relative;
+            width: 70%;
+            height: auto;
+            .ProfileLeftSide-photo-container{
+                position: absolute;
+                cursor: pointer;
+                width: 100%;
+                height: 100%;
+                border-radius: 50%;
+            }
+            .ProfileLeftSide-photo-on-upload{
+                
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                border-radius: 50%;
+                background-color: $primaryColor;
+                opacity: 0.2;
+            }
+            span{
+                color: white;
+                font-size: 18px;
+                font-weight: 500;
+                width: 100%;
+                text-align: center;
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+            }
+            img{
+                // margin: 5px 0;
+                width: 100%;
+                height: 100%;
+
+                // background-color: blueviolet;
+                border-radius: 50%;
+                
+            }
+            
+        }
+        .ProfileLeftSide-photo-edit{
+            margin: 5px 0;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            span{
+                margin-bottom: 10px;
+            }
+        }
+    }
+    
+}
+
+@media (max-width: 768px) {
+    .ProfileLeftSide{
+        .ProfileLeftSide-user{
+            h1{
+                width: 100%;
+                // margin: 20px 0;
+                text-align: center;
+                font-size: 1.6rem;
+            }
+            .ProfileLeftSide-photo{
+                width: 86%;
+            }
+        }
+    }
+    
+}

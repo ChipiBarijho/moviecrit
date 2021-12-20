@@ -1,0 +1,278 @@
+@import '../../scss/utils';
+
+
+.Navbar {
+    position: fixed;
+    width: 100%;
+    height: 4rem;
+    background-color: #a45bc1;
+    background-image: linear-gradient(225deg, #a45bc1 0%, #784BA0 50%, #2B86C5 100%);
+    display: flex;
+    justify-content: center;
+    color: white;
+    z-index: 100;
+
+    .Navbar-container {
+        text-align: center;
+        width: 65%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        .Navbar-logo {
+            a{
+                text-decoration: none;
+                font-family: 'Fredoka One', sans-serif;
+                font-size: 35px;
+                color: white;
+            }
+        }
+
+        .Navbar-search-form {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0;
+            padding: 0;
+            flex-grow: 1;
+
+            input {
+                text-align: center;
+                padding: 10px;
+                border: none;
+                border-radius: 50px;
+                width: 60%;
+                height: 35px;
+                font-size: 1.2rem;
+                &:focus {
+                    outline: none;
+                }
+
+                @include placeholder {
+                    font-weight: 400;
+                    font-size: 1.2rem;
+                }
+            }
+        }
+
+        .Navbar-settings {
+            display: flex;
+            align-items: center;
+
+            .Navbar-settings-theme-mode{
+                display: flex;
+                align-items: center;
+                margin: 0 10px;
+            }
+            
+            .NavbarAuthed{
+                
+                .NavbarAuthed-settings{
+                    display: flex;
+                    align-items: center;
+
+                    
+
+                    .NavbarAuthed-settings-addmovie {
+                        margin: 0 20px;
+                        display: flex;
+                        flex-direction: column;
+                        position: relative;
+        
+                        &:hover {
+                            cursor: pointer;
+                        }
+        
+                        .NavbarAuthed-settings-addicon {
+                            font-size: 35px;
+        
+                            &:hover {
+                                color: $secondaryColorLighter;
+                            }
+                        }
+        
+                        >span {
+                            background-color: $primaryColor;
+                            padding: 2px;
+                            width: 70px;
+                            position: absolute;
+                            left: -15px;
+                            top: 30px;
+                            font-size: 12px;
+                            font-weight: 500;
+                        }
+                    }
+                    .NavbarAuthed-profile{
+                        position: relative;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        .Navbar-settings-accountcircleicon {
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+                            height: auto;
+                            width: auto;
+                            &:hover {
+                                cursor: pointer;
+                            }
+                        }
+                        .UserModal{
+                            z-index: 200;
+                            padding: 10px;
+                            position: absolute;
+                            top: 50%;
+                            left: 50%;
+                            transform: translate(-50%, 20%);
+                            background-color: white;
+                            border: 2px solid $primaryColor;
+                            border-radius: 10px;
+                            width: 120px;
+                            height: auto; // should be auto
+                            button{
+                                width: auto;
+                                color: white;
+                                background-color: $secondaryColor;
+                                padding: 4px 14px;
+                                margin-top: 5px;
+                                align-self: center;
+                                border-radius: 50px;
+                                font-size: 17px;
+                                &:hover{
+                                  background-color: $primaryColorLighter;
+                                }
+                            }
+                            .UserModal-options{
+                                margin-bottom: 10px;
+                                div{
+                                    font-size: 18px;
+                                    margin: 5px 0 15px 0;
+                                    color: $secondaryColor;
+                                    font-weight: 500;
+                                    &:hover{
+                                        cursor: pointer;
+                                        color: $primaryColor;
+                                    }
+                                }
+
+                            }
+                        }
+                    }
+                    
+                }
+            }
+           
+
+            .Navbar-settings-login {
+                position: relative;
+                button{
+                    padding: 8px 10px;
+                    border:2px solid white;
+                    border-radius: 50px;
+                }
+            }
+
+            
+        }
+    }
+}
+
+
+
+// DARK MODE
+.Navbar-dark{
+    background-image: linear-gradient(225deg, #8e55a7 0%, #5b3a79 50%, #2e7fb9 100%);
+}
+.UserModal-dark{
+    background-color: black;
+}
+
+
+
+
+
+
+
+
+
+
+
+@media (max-width: 768px) {
+    .Navbar {
+        .Navbar-container {
+            width: 80%;
+        }
+    }
+
+}
+
+@media (max-width: 600px) {
+    .Navbar {
+        .Navbar-container {
+            width: 92%;
+
+            .Navbar-logo {
+                font-size: 20px;
+            }
+
+            .Navbar-search-form {
+                // position: relative;
+                display: none;
+                input {
+                    width: 50%;
+                    height: 20px;
+
+                    @include placeholder {
+                        font-weight: 400;
+                        font-size: 12px;
+                    }
+                }
+
+                .Navbar-search-icon {
+                    font-size: 15px;
+
+                    >div {
+                        height: 20px;
+                    }
+                }
+            }
+
+            .Navbar-settings {
+                .Navbar-settings-addmovie {
+                    margin: 0 20px;
+
+                    .Navbar-settings-addicon {
+                        font-size: 20px;
+                    }
+
+                    >span {
+                        width: 70px;
+                        // position: absolute;
+                        left: -25px;
+                        top: 18px;
+                        font-size: 9px;
+                        font-weight: 500;
+                    }
+                }
+
+                .Navbar-settings-accountcircleicon {
+                    font-size: 18px;
+                }
+
+                .NavbarAuthed{
+                    .NavbarAuthed-settings{
+                        .NavbarAuthed-profile{
+                            .UserModal{
+                                left: 0;
+                                transform: translate(-72%, 20%);
+                            }
+                        }
+                    }
+                    
+                }
+            }
+        }
+    }
+
+}

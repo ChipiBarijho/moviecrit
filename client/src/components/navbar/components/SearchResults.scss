@@ -1,0 +1,115 @@
+@import '../../../scss/utils';
+
+.SearchResults{
+    
+    position: absolute;
+    margin-top: 2px;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    height: auto;
+    z-index: 20;
+    .SearchResults-container{
+        margin-left: auto;
+        margin-right: auto;
+        width: 80%;
+        // min-height: 40px;
+        height: auto;
+        background-color: white;
+        border-radius: 25px;
+        color: black;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        // justify-content: flex-start;
+        justify-content: center;
+        a{
+            color: black;
+        }
+        .SearchResults-single-movie{
+            width: 80%;
+            height: 80px;
+            margin: 20px 0;
+            margin-left: auto;
+            margin-right: auto;
+            display: flex;
+            align-items: center;
+            // justify-content: center;
+            justify-content: space-between;
+            &:hover{
+                background-color: rgba(0, 0, 0, 0.05);
+            }
+            
+            .SearchResults-movie-image{
+                display: flex;
+                align-items: center;
+                margin-right: 10px;
+                width: 10%;
+                height: 100%;
+                img{
+                    width: auto;
+                    height: 100%;
+                }
+            }
+            .SearchResults-movie-title{
+                display: flex;
+                align-items: center;
+                flex-grow: 1;
+                margin-left: 20px;
+                span{
+                    font-size: 0.9rem;
+                    font-weight: 500;
+                    color: gray;
+                    margin-left: 5px;
+                }
+            }
+
+           
+
+        }
+
+        .separator{
+            margin-left: auto;
+            margin-right: auto;
+            width: 70%;
+            border: 1px solid $primaryColorLighter;
+            opacity: 0.5;
+        }
+
+        .SearchResults-not-found{
+            margin: 20px auto;
+            font-size: 18px;
+            font-weight: 500;
+        }
+
+
+    }
+}
+
+// Dark Mode
+.SearchResults{
+    color: white;
+    .SearchResults-container-dark{
+        background-color: $darkModeColor;
+        -webkit-box-shadow: 0px 0px 35px -8px rgba(138,138,138,0.38);
+        -moz-box-shadow: 0px 0px 35px -8px rgba(138,138,138,0.38);
+        box-shadow: 0px 0px 35px -8px rgba(138,138,138,0.38);
+        a{
+            color: white;
+        }
+        .SearchResults-single-movie{
+            &:hover{
+                cursor: pointer;
+                background-color: #2b85c528;
+            }
+        }
+    }
+}
+
+@media (max-width: 1024px){
+    .SearchResults{
+        .SearchResults-container{
+            width: 100%;
+        }
+    }
+}

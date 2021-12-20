@@ -1,0 +1,13 @@
+@import '../../scss/utils';
+.Movie{
+    height: auto;
+    padding-bottom: 200px;
+    padding-top: 60px;
+}
+.Movie-dark{
+    background-color: $darkModeColor;
+    color: white;
+    height: auto;
+    padding-bottom: 200px;
+    padding-top: 60px;
+}
