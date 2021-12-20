@@ -14,7 +14,6 @@ function UserModal({userModal, canClick}) {
         const data = {
             "refreshToken":refreshToken
         }
-        // const res = await axios.post(process.env.REACT_APP_API_ENDPOINT + '/user/logout', data, {headers: { "Content-Type": "application/json", "Authorization": `Bearer ${userContext.token}`}})
         const res = await axios.post('/user/logout', data, {headers: { "Content-Type": "application/json", "Authorization": `Bearer ${userContext.token}`}})
         if (res.status === 200) {
             setUserContext(oldValues =>{
@@ -38,10 +37,7 @@ function UserModal({userModal, canClick}) {
        
             <div className='UserModal' style={isDarkMode ? {backgroundColor: 'rgb(20, 20, 20)'} : {backgroundColor: 'white'}}>
                 <div className="UserModal-options">
-                    {/* <Link to={`/user/${userContext.currentUserId}`} onClick={()=>{handleProfileClick()}}>Profile</Link> */}
                     <div onClick={()=>{handleProfileClick()}} style={isDarkMode ? {color:'white'} : {backgroundColor: 'white'}}>Profile</div>
-                    {/* <div>Settings</div>
-                    <div>Theme</div> */}
                 </div>
                 <button onClick={handleLogout}>Logout</button>
             </div>

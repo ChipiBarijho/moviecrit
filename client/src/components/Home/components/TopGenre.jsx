@@ -12,7 +12,6 @@ function TopGenre() {
         const getTopGenre = async () =>{
             const res = await axios.get('/movies/topgenres')
             if (res.status === 200) {
-                // console.log(res.data);
                 setGenres(res.data)
             }
         }

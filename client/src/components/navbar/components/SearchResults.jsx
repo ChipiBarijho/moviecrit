@@ -15,7 +15,6 @@ function SearchResults({searchValue, setSearchValue}) {
     let navigate = useNavigate()
     useEffect(() => {
         const delayDebounceFn = setTimeout(async () => {
-            // console.log(searchValue)
             if (searchValue) {
                 const res = await axios.get(`/movies/search?q=${searchValue}`)
                 if (res.status === 200) {
@@ -35,7 +34,6 @@ function SearchResults({searchValue, setSearchValue}) {
     const handleMovieClick = (movieId)=>{
         navigate(`/movie/${movieId}`)
         setSearchValue(null)
-        // window.location.reload(false);
     }
 
     return (

@@ -1,7 +1,6 @@
 import './Login.scss'
 import React, {useContext, useState} from 'react'
 import { UserContext } from '../../contexts/UserContext';
-// import OutsideClickHandler from 'react-outside-click-handler';
 import axios from 'axios'
 import Loader from "react-loader-spinner";
 import { ThemeContext } from '../../contexts/ThemeContext';
@@ -26,7 +25,6 @@ function Login({ RegisterModal, LoginModal}) {
     const genericErrorMessage = "Something went wrong! Please try again later."
     const postLogin = async() =>{
       try {
-        // const res = await axios.post(process.env.REACT_APP_API_ENDPOINT + '/user/login', loginDetails, {withCredentials: true, credentials: 'include'})
         const res = await axios.post('/user/login', loginDetails, {withCredentials: true, credentials: 'include'})
         if (res.status === 200) {
           setUserContext(oldValues => {

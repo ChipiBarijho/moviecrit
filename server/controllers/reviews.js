@@ -59,14 +59,11 @@ module.exports.editReview = async (req, res) => {
 };
 
 module.exports.addLike = async (req, res) => {
-  // console.log(req.params.reviewId, req.body.currentUserId);
   const { reviewId } = req.params;
   const { currentUserId } = req.body;
 
   // Check if user already liked the review
   const review = await Review.findById(reviewId);
-  // const checkUserLike = review.likedBy.filter((r, i) => i !== currentUserId);
-  // console.log(checkUserLike, reviewId, currentUserId);
   if (reviewId && currentUserId) {
     // Add 1 to likes amount in Review
     await Review.findByIdAndUpdate(reviewId, { $inc: { likes: 1 } });
@@ -84,7 +81,6 @@ module.exports.addLike = async (req, res) => {
 };
 
 module.exports.removeLike = async (req, res) => {
-  // console.log(req.params.reviewId, req.user._id);
   const { reviewId } = req.params;
   const { _id } = req.user;
   await Review.findByIdAndUpdate(reviewId, { $inc: { likes: -1 } });
@@ -101,7 +97,6 @@ module.exports.latestReviews = async (req, res) => {
     const reviews = await Review.find({})
       .populate("authorId")
       .populate("movieId");
-    // latestTopMovies.sort((a, b) => Date.parse(b.release_date) - Date.parse(a.release_date));
     reviews.sort((a, b) => Date.parse(b.created_at) - Date.parse(a.created_at));
     res.send(reviews.slice(0, 5));
   } catch (error) {}

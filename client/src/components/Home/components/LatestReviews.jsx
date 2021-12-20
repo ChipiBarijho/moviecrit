@@ -12,7 +12,6 @@ function LatestReviews() {
         const getLatestReviews = async () =>{
             const res = await axios.get("/review/latest")
             setLatestReviews(res.data)
-            // console.log(res.data);
     
         }
         getLatestReviews()
@@ -45,7 +44,6 @@ function LatestReviews() {
                             <img src={`https://image.tmdb.org/t/p/original/${r.movieId.backdrop_path}`} alt="" />
                         </div>
                         <div className="LatestReviews-card-check-review" onClick={()=>{handleClickReview(r.movieId._id, r._id)}}>
-                            {/* <div className='LatestReviews-card-rating'>{r.rating}</div> */}
                             <span>Read Review</span>
                         </div>
                     </div>

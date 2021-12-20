@@ -3,9 +3,8 @@ import './MovieReviews.scss'
 import {UserContext} from '../../../contexts/UserContext'
 import Rating from '@mui/material/Rating';
 import axios from 'axios'
-import {Link, Navigate, useParams} from 'react-router-dom'
+import {Link, useParams} from 'react-router-dom'
 import CircularProgress from '@mui/material/CircularProgress';
-import PersonIcon from '@mui/icons-material/Person';
 import {ReadMore} from '../../utils/utils'
 import DeleteOutlineIcon from '@mui/icons-material/DeleteOutline';
 import EditIcon from '@mui/icons-material/Edit';
@@ -27,10 +26,9 @@ function MovieReviews(location) {
     const [deleteReview, setDeleteReview] = useState(null)
     const [likeReview, setLikeReview] = useState(null)
     const [likedReview, setLikedReview] = useState(null)
-    // const [byPopularity, setByPopularity] = useState(true)
     const [sortBy, setSortBy] = useState('popular')
     const [reviews, setReviews] = useState(null)
-    const params = useParams() // need params.id to get the id of the movie and then send the id with the post request and use the id to find the movie in the db
+    const params = useParams() // need params.id to get the id of the movie and then send the id on the post request to the api and use the id to find the movie in the db
 
     // Get reviews
     useEffect(() => {
@@ -211,11 +209,9 @@ function MovieReviews(location) {
             </div>}
 
             {reviews && reviews.map(r =>{
-                // return <div key={r._id} className='MovieReviews-review-card' style={location.location.state.reviewId === r._id ? {border: '2px solid $primaryColor'}: {border: '2px solid $primaryColor'}}>
                 return <div key={r._id} className={location.location.state && location.location.state.reviewId === r._id ? 'MovieReviews-review-card selected-review' : 'MovieReviews-review-card'} >
                     <div className="MovieReviews-review-card-container">
                         <div className='MovieReviews-review-card-profile'>
-                            {/* <PersonIcon fontSize='large'/> */}
                             <div className='MovieReviews-profile-photo'>
                                 
                                 <Link to={`/user/${r.authorId._id}`}><img src={r.authorId.profileImg} alt="" /></Link>

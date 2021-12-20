@@ -41,8 +41,7 @@ module.exports.allMovies = async (req, res) => {
         return latestTopMovies.push(movie);
       }
     });
-    // Sort by rating in descending order
-    // latestTopMovies.sort((a, b) => parseFloat(b.rating) - parseFloat(a.rating));
+    // Sort by date in descending order
     latestTopMovies.sort(
       (a, b) => Date.parse(b.release_date) - Date.parse(a.release_date)
     );
@@ -149,7 +148,6 @@ module.exports.movieReviews = async (req, res) => {
   const { id } = req.params;
   const { sortBy } = req.body;
 
-  // console.log(ObjectId.isValid(id));
   try {
     //Find movie by id and only get the critReviews field
     const movieReviews = await Movie.findById(id)
@@ -177,10 +175,8 @@ module.exports.movieReviews = async (req, res) => {
 };
 
 module.exports.searchMovie = async (req, res, next) => {
-  // setTimeout(next, 1000);
   const { q } = req.query;
-  // console.log(movie);
-  // res.send(movie);
+
   if (q.length) {
     try {
       const movie = await Movie.find({
@@ -198,8 +194,6 @@ module.exports.searchMovie = async (req, res, next) => {
 };
 
 module.exports.topLatestMovies = async (req, res, next) => {};
-
-// const result = await Product.find({"title" :{ $regex: search, $options: "i"}}).populate('reviews');
 
 module.exports.topGenre = async (req, res) => {
   const action = await Movie.find({ "genres.name": "Action" }).select(

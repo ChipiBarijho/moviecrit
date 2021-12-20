@@ -67,17 +67,13 @@ module.exports.login = async (req, res, next) => {
     if (err) {
       res.status(500).send(err);
     } else {
-      // res.cookie("refreshToken", refreshToken, COOKIE_OPTIONS);
       res.send({ success: true, token, refreshToken });
     }
   });
 };
 
 module.exports.refreshToken = async (req, res, next) => {
-  // const { signedCookies = {} } = req;
-  // const { refreshToken } = signedCookies;
   const { refreshToken } = req.body;
-  // console.log(refreshToken);
   if (refreshToken) {
     try {
       const payload = jwt.verify(
@@ -104,7 +100,6 @@ module.exports.refreshToken = async (req, res, next) => {
               res.statusCode = 500;
               res.send(err);
             } else {
-              // res.cookie("refreshToken", newRefreshToken, COOKIE_OPTIONS);
               res.send({ success: true, token, newRefreshToken });
             }
           });
@@ -129,11 +124,7 @@ module.exports.userInfo = (req, res, next) => {
 };
 
 module.exports.logout = async (req, res, next) => {
-  // const { signedCookies = {} } = req;
-  // const { refreshToken } = signedCookies;
-
   const { refreshToken } = req.body;
-  // console.log(req.body.refreshToken, req.user);
   const user = await User.findById(req.user._id);
   const tokenIndex = user.refreshToken.findIndex(
     (item) => item.refreshToken === refreshToken
@@ -146,7 +137,6 @@ module.exports.logout = async (req, res, next) => {
       res.statusCode = 500;
       res.send(err);
     } else {
-      // res.clearCookie("refreshToken", COOKIE_OPTIONS);
       res.status(200).send({ success: true });
     }
   });

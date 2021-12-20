@@ -2,8 +2,6 @@ import StarsIcon from '@mui/icons-material/Stars';
 import PlayArrowIcon from '@mui/icons-material/PlayArrow';
 import React, { useContext, useEffect, useState } from 'react'
 import './MovieContent.scss'
-// import axios from 'axios'
-// import {useParams} from 'react-router-dom'
 import YoutubeTrailer from './YoutubeTrailer';
 import { ThemeContext } from '../../../contexts/ThemeContext';
 const moment = require('moment')
@@ -39,7 +37,6 @@ function MovieContent({movie, genre, director}) {
                         <div className="MovieContent-details-title">
                             <h1>{movie.original_title}</h1>
                             
-                            {/* <span>({moment(movie.release_date).format('YYYY')})</span> */}
                         </div>
                         
                         <div className='MovieContent-details-subtitle'>

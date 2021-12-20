@@ -7,7 +7,6 @@ import { Link } from 'react-router-dom';
 import StarsIcon from '@mui/icons-material/Stars';
 import EventIcon from '@mui/icons-material/Event';
 const moment= require('moment') 
-// https://image.tmdb.org/t/p/original
 
 function MediaDiscover() {
     const [topMovies, setTopMovies] = useState(null)
@@ -19,7 +18,6 @@ function MediaDiscover() {
 
     useEffect(() => {
         const getTopMovies = async () =>{
-            // const res = await axios.get(process.env.REACT_APP_API_ENDPOINT + "/movies")
             const res = await axios.get("/movies")
             setTopMovies(res.data)
     

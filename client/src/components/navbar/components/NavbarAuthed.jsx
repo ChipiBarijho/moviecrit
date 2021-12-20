@@ -25,7 +25,6 @@ function NavbarAuthed({setOpenNewMovieModal}) {
         if (openUserModal === false && canClick === false) {
             setCanClick(true)
         }
-        // console.log(openUserModal, canClick, outsideClick);
     }, [openUserModal, canClick])
 
     return (
@@ -41,7 +40,6 @@ function NavbarAuthed({setOpenNewMovieModal}) {
                     }}
                 >
                 <div className="NavbarAuthed-profile">
-                    {/* <AccountCircleIcon className='Navbar-settings-accountcircleicon' onClick={()=>{setOpenUserModal(!openUserModal)}}/> */}
                     <button className='Navbar-settings-accountcircleicon' onClick={canClick ? handleUserModal : handleCanClick}>
                         <AccountCircleIcon />
                     </button>

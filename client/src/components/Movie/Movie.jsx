@@ -40,10 +40,6 @@ function Movie() {
         getMovie()
     }, [params])
 
-    // useEffect(() => {
-    //     window.location.reload(false);
-    // }, [params.id])
-
     return (
         <div key={params.id} className={isDarkMode ? 'Movie-dark' : 'Movie'} style={{display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
             <MovieContent movie={movie} genre={genre} director={director}/>

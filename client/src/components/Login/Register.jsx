@@ -31,7 +31,6 @@ function Register({RegisterModal, LoginModal}) {
     const genericErrorMessage = "Something went wrong! Please try again later."
     const postSignUp = async() =>{
       try {
-        // const res = await axios.post(process.env.REACT_APP_API_ENDPOINT + '/user/signup', regDetails)
         const res = await axios.post('/user/signup', regDetails)
         if (res.status === 200) {
           setUserContext(oldValues => {
@@ -48,8 +47,6 @@ function Register({RegisterModal, LoginModal}) {
           setError(error.response.data.message)
         } else if (error.response.status === 500) {
           setError(error.response.data.message)
-          // const data = res.data
-          // if (data.message) setError(data.message || genericErrorMessage)
         } else {
           setError(genericErrorMessage)
         }

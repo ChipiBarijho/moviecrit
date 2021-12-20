@@ -23,7 +23,6 @@ function PreviewImage({clickOnPhoto}) {
     useEffect(() => {
       if (clickOnPhoto) {
         inputPhotoRef.current.click();
-        // console.log(inputPhotoRef.current.focus());
       }
         
     }, [clickOnPhoto]);
@@ -34,8 +33,6 @@ function PreviewImage({clickOnPhoto}) {
           return;
         }
         const base64Canvas = canvas.toDataURL("image/jpeg");
-        // REACT_APP_CLOUDINARY_PRESET
-        // REACT_APP_CLOUDINARY_CLOUD_NAME
         const data = {
             upload_preset: process.env.REACT_APP_CLOUDINARY_PRESET,
             cloud_name: process.env.REACT_APP_CLOUDINARY_CLOUD_NAME,
@@ -43,7 +40,6 @@ function PreviewImage({clickOnPhoto}) {
         }
         const res = await axios.post(`https://api.cloudinary.com/v1_1/${process.env.REACT_APP_CLOUDINARY_CLOUD_NAME}/image/upload`, data)
         if (res.status === 200) {
-            // res.data.url --> image uploaded url
             const addToDbRes = await axios.post(`/user/${userContext.currentUserId}/addProfilePhoto`, {imgUrl: res.data.url}, {headers: { "Content-Type": "application/json", "Authorization": `Bearer ${userContext.token}`}}) 
             if (addToDbRes.status === 200) {
                 setIsSending(false)
@@ -105,8 +101,6 @@ function PreviewImage({clickOnPhoto}) {
         <div className='PreviewImage'>
             {userContext.token && 
                 <div className='PreviewImage-edit-photo'>
-                    {/* {showSpan && <span className='PreviewImage-edit-photo-span'>Change Photo</span>}
-                    <label htmlFor="profilePic" onMouseEnter={()=>{setShowSpan(true)}}  onMouseLeave={()=>{setShowSpan(false)}} ></label> */}
                     
                     <input ref={inputPhotoRef} id="profilePic" type="file" onChange={onSelectFile} value=''/>
                 </div>
@@ -133,8 +127,6 @@ function PreviewImage({clickOnPhoto}) {
                     <ReactCrop src={upImg} crop={crop} onChange={(c) => setCrop(c)}  onComplete={(c) => setCompletedCrop(c)} circularCrop={true} onImageLoaded={onLoad} 
                     maxWidth={200} 
                     maxHeight={200}
-                    // minWidth={150}
-                    // minHeight={150}
                     keepSelection={true} 
                     style={{maxWidth: '90%', margin: '20px 0'}}
                     />

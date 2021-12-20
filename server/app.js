@@ -18,14 +18,7 @@ app.use(cookieParser(process.env.COOKIE_SECRET));
 app.use(express.json()); // express json parser
 app.use(express.urlencoded({ extended: true }));
 
-// Frontend build
-// app.use(express.static(path.join(__dirname, "../client/build")));
-// app.get("/*", function (req, res) {
-//   res.sendFile(path.join(__dirname, "../client/build", "index.html"));
-// });
-
 //Add the client URL to the CORS policy
-
 const whitelist = process.env.WHITELISTED_DOMAINS
   ? process.env.WHITELISTED_DOMAINS.split(",")
   : [];

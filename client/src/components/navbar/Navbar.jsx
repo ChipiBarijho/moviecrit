@@ -14,7 +14,6 @@ import { Switch } from '@mui/material';
 import LightModeIcon from '@mui/icons-material/LightMode';
 import DarkModeIcon from '@mui/icons-material/DarkMode';
 import SearchResults from './components/SearchResults';
-import {debounce} from '../utils/utils'
 
 function Navbar() {
     const [openNewMovieModal, setOpenNewMovieModal] = useState(false)
@@ -33,7 +32,6 @@ function Navbar() {
         const data = {
             "refreshToken":refreshToken
         }
-        // const res = await axios.post(process.env.REACT_APP_API_ENDPOINT + "/user/refreshToken", data)
         const res = await axios.post("/user/refreshToken", data)
         if (res.status === 200) {
             const token = res.data.token
@@ -101,13 +99,11 @@ function Navbar() {
         if (openLoginModal === false && canClick === false) {
             setCanClick(true)
         }
-        // console.log(openLoginModal, canClick);
     }, [openLoginModal, canClick])
 
     const setTheme = useCallback(()=>{
         const darkMode = localStorage.getItem('isDarkMode')
         if (!darkMode) {
-            // localStorage.setItem('isDarkMode', false)
         } else if (darkMode) {
             if (darkMode === 'true') {
                 localStorage.setItem('isDarkMode', true)
@@ -128,42 +124,13 @@ function Navbar() {
         localStorage.setItem('isDarkMode', !isDarkMode)
     }
 
-    // Scroll position
-    // const [prevScrollPos, setPrevScrollPos] = useState(0);
-    // const [visible, setVisible] = useState(false);
-
-    // const handleScroll = debounce(() => {
-    //     const currentScrollPos = window.pageYOffset;
-
-    //     // setVisible((prevScrollPos > currentScrollPos && prevScrollPos - currentScrollPos > 70));
-    //     if (prevScrollPos && currentScrollPos < 10) {
-    //         setVisible(false)
-    //     } else if (prevScrollPos > currentScrollPos) {
-    //         setVisible(true)
-    //     }
-
-    //     setPrevScrollPos(currentScrollPos);
-    // }, 100);
-
-    // useEffect(() => {
-    //     window.addEventListener('scroll', handleScroll);
-
-    //     return () => window.removeEventListener('scroll', handleScroll);
-
-    // }, [prevScrollPos, visible, handleScroll]);
-
     return (
         <>
-            {/* <div className={isDarkMode ? 'Navbar Navbar-dark' : 'Navbar'} style={{position: visible ? 'absolute' : 'relative'}}> */}
             <div className={isDarkMode ? 'Navbar Navbar-dark' : 'Navbar'}>
                 <div className='Navbar-container'>
                     <div className='Navbar-logo'><Link to='/'>MovieCrit </Link></div>
                     <form className='Navbar-search-form'>
                         <input placeholder='Search for a movie...' onChange={(e)=>{setSearchValue(e.target.value)}}/>
-                        {/* <input placeholder='Search for a movie...' onChange={(e)=>{findMovie(e)}}/> */}
-                        {/* <div className='Navbar-search-icon'>
-                            <div>Search</div>
-                        </div> */}
                         <OutsideClickHandler
                             onOutsideClick={() => {
                                 setSearchValue(null)
@@ -188,7 +155,6 @@ function Navbar() {
                                     }}
                                 > 
                                 <div className='Navbar-settings-login'>
-                                    {/* <button onClick={() => { setOpenLoginModal(!openLoginModal) }}>Log In</button> */}
                                     <button onClick={canClick ? handleLoginModal : handleCanClick}>Log In</button>
                                     {openLoginModal && <Login LoginModal={{openLoginModal, setOpenLoginModal}} RegisterModal={{openRegisterModal, setOpenRegisterModal}}/>}
                                     {openRegisterModal && <Register LoginModal={{openLoginModal, setOpenLoginModal}} RegisterModal={{openRegisterModal, setOpenRegisterModal}}/>}
