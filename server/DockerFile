@@ -1,5 +1,13 @@
 FROM node:16
 
+ENV DB_URL mongodb+srv://chipi:9ZJNyrA8zuXquaB@cluster0.aomhh.mongodb.net/trailerconDB?retryWrites=true&w=majority
+ENV TMDB_API_KEY "71b210774480b37cc3325099149360ef"
+ENV JWT_SECRET 'YqS=$XYp_$2.;+2f=Zz&R|oGY<5$%g#]"V:hhv>JH-|7o7R$;o%5S{x~uJ-bbhm'
+ENV REFRESH_TOKEN_SECRET "s[0*Y4:mSuu!45qZ>+ee/fKbm-X26!o6v2Bt2-p<ml~mbCrhKr#>{0?!`Fs$vQd"
+ENV SESSION_EXPIRY 60 * 15
+ENV REFRESH_TOKEN_EXPIRY 60 * 60 * 24 * 30
+ENV COOKIE_SECRET 'oem:z8%X5.GS)}Ky~=`AvSeV7J/[bhTji%TOv[@OQhLp{gE>|g"eDE#8c$wu>}J'
+ENV WHITELISTED_DOMAINS 'http://localhost:4001'
 # Create app directory
 WORKDIR /usr/src/app
 
