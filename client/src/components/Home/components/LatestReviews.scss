@@ -38,7 +38,6 @@
             .LatestReviews-card-user{
                 display: flex;
                 height: 20%;
-                // background-color: black;
                 width: 100%;
                 margin: 12px 5px;
                 .LatestReviews-user-image{
@@ -55,15 +54,22 @@
                     text-align: center;
                     display: flex;
                     align-items: center;
-                    justify-content: flex-start;
-                    width: 100%;
+                    justify-content: space-between;
+                    width: 94%;
                     margin-left: 10px;
+                    margin-right: 10px;
                     color: $primaryColorLighter;
                     font-weight: 500;
                     font-size: 1rem;
+                    .LatestReviews-username-name{
+                        display: flex;
+
+                        width: 60%;
+
+                    }
                     .LatestReviews-username-rating{
                         color: $secondaryColor;
-                        margin-left: 20px;
+                        // margin-left: 20px;
                         border: 2px solid $primaryColor;
                         padding: 4px 8px;
                         border-radius: 5px;

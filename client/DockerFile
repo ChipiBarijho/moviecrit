@@ -4,6 +4,8 @@ FROM node:16
 WORKDIR /app
 
 # add `/app/node_modules/.bin` to $PATH
+ENV HOST 0.0.0.0
+ENV Browser none
 ENV REACT_APP_TMDB_API_KEY "71b210774480b37cc3325099149360ef"
 ENV REACT_APP_API_ENDPOINT "http://localhost:4000"
 ENV REACT_APP_CLOUDINARY_PRESET "moviecrit"
@@ -19,4 +21,5 @@ RUN npm install react-scripts@3.4.1 -g --silent
 COPY . ./
 
 # start app
+EXPOSE 3000
 CMD ["npm", "start"]

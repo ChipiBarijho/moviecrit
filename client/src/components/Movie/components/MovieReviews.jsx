@@ -111,7 +111,6 @@ function MovieReviews(location) {
     }
 
     const handleLike = async (reviewId) => {
-        console.log(reviewId);
         if (!likeReview) {
             const res = await axios.post(`/review/${reviewId}/like`, {currentUserId: userContext.currentUserId})
             if (res.status === 200) {
@@ -155,12 +154,22 @@ function MovieReviews(location) {
     }
 
     useEffect(() => {
+        if(location.location.state && location.location.state.reviewId){
+            console.log(location.location.state.reviewId);
+            setTimeout(() => {
+                const element = document.getElementById(location.location.state.reviewId);
+                element.scrollIntoView({behavior: 'smooth', block: 'center'});
+            }, 500);
+            
+        }
         window.addEventListener("beforeunload", clearLocation);
         return () => {
           window.removeEventListener("beforeunload", clearLocation);
         };
       }, []);
     const clearLocation = (e) => {
+        
+        
         window.history.replaceState(null, '')
     };
 
@@ -210,7 +219,7 @@ function MovieReviews(location) {
             </div>}
 
             {reviews && reviews.map(r =>{
-                return <div key={r._id} className={location.location.state && location.location.state.reviewId === r._id ? 'MovieReviews-review-card selected-review' : 'MovieReviews-review-card'} >
+                return <div key={r._id} id={r._id} className={location.location.state && location.location.state.reviewId === r._id ? 'MovieReviews-review-card selected-review' : 'MovieReviews-review-card'} >
                     <div className="MovieReviews-review-card-container">
                         <div className='MovieReviews-review-card-profile'>
                             <div className='MovieReviews-profile-photo'>
@@ -224,7 +233,8 @@ function MovieReviews(location) {
                         </div>
                         <div className='MovieReviews-review-card-content'>
                             <div className="MovieReviews-review-content-user">
-                                <Link to={`/user/${r.authorId._id}`} className='MovieReviews-review-user-name'>{r.authorId.firstName} {r.authorId.lastName}</Link>
+                                {/* <Link to={`/user/${r.authorId._id}`} className='MovieReviews-review-user-name'>{r.authorId.firstName} {r.authorId.lastName}</Link> */}
+                                <Link to={`/user/${r.authorId._id}`} className='MovieReviews-review-user-name'>{r.authorId.firstName ? `${r.authorId.firstName} ${r.authorId.lastName}`: r.authorId.username}</Link>
                                 <div className="MovieReviews-content-user-rating"><StarsIcon fontSize='small' style={{color: '#edc121', margin: '0px 4px', alignSelf: 'center'}} /> {r.rating}</div>
                                 {r.edited && <div className="MovieReviews-content-user-edit">(edited)</div>}
                             </div>

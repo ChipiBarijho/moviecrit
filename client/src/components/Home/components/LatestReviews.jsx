@@ -32,7 +32,7 @@ function LatestReviews() {
                                 <img src={r.authorId.profileImg} alt="" />
                             </div>
                             <div className='LatestReviews-username'>
-                                {r.authorId.firstName} {r.authorId.lastName}
+                                <div className="LatestReviews-username-name">{r.authorId.firstName ? `${r.authorId.firstName} ${r.authorId.lastName}`: r.authorId.username}</div>
                                 <div className='LatestReviews-username-rating'>{r.rating}</div>
                             </div>
                             
