@@ -111,6 +111,7 @@ function MovieReviews(location) {
     }
 
     const handleLike = async (reviewId) => {
+        console.log(reviewId);
         if (!likeReview) {
             const res = await axios.post(`/review/${reviewId}/like`, {currentUserId: userContext.currentUserId})
             if (res.status === 200) {

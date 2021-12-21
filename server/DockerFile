@@ -1,5 +1,6 @@
 FROM node:16
 
+
 ENV DB_URL mongodb+srv://chipi:9ZJNyrA8zuXquaB@cluster0.aomhh.mongodb.net/trailerconDB?retryWrites=true&w=majority
 ENV TMDB_API_KEY "71b210774480b37cc3325099149360ef"
 ENV JWT_SECRET 'YqS=$XYp_$2.;+2f=Zz&R|oGY<5$%g#]"V:hhv>JH-|7o7R$;o%5S{x~uJ-bbhm'

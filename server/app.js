@@ -24,7 +24,8 @@ const whitelist = process.env.WHITELISTED_DOMAINS
   : [];
 
 const corsOptions = {
-  origin: "http://localhost:4001",
+  // origin: "http://localhost:4001",
+  origin: "http://localhost:3000",
   credentials: true,
 };
 
